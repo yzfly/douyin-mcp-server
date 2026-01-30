@@ -242,13 +242,13 @@ async def extract_douyin_text(
     返回:
     - 提取的文本内容
     
-    注意: 需要设置环境变量 DASHSCOPE_API_KEY
+    注意: 需要设置环境变量 API_KEY
     """
     try:
         # 从环境变量获取API密钥
-        api_key = os.getenv('DASHSCOPE_API_KEY')
+        api_key = os.getenv('API_KEY')
         if not api_key:
-            raise ValueError("未设置环境变量 DASHSCOPE_API_KEY，请在配置中添加阿里云百炼API密钥")
+            raise ValueError("未设置环境变量 API_KEY，请在配置中添加阿里云百炼API密钥")
         
         processor = DouyinProcessor(api_key, model)
         
@@ -328,11 +328,11 @@ def douyin_text_extraction_guide() -> str:
 
 ## 环境变量配置
 请确保设置了以下环境变量：
-- `DASHSCOPE_API_KEY`: 阿里云百炼API密钥
+- `API_KEY`: 阿里云百炼API密钥
 
 ## 使用步骤
 1. 复制抖音视频的分享链接
-2. 在Claude Desktop配置中设置环境变量 DASHSCOPE_API_KEY
+2. 在Claude Desktop配置中设置环境变量 API_KEY
 3. 使用相应的工具进行操作
 
 ## 工具说明
@@ -349,7 +349,7 @@ def douyin_text_extraction_guide() -> str:
       "command": "uvx",
       "args": ["douyin-mcp-server"],
       "env": {
-        "DASHSCOPE_API_KEY": "your-dashscope-api-key-here"
+        "API_KEY": "your-api-key-here"
       }
     }
   }
